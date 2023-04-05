@@ -14,27 +14,6 @@ const markup = galleryItems
   .join("");
 
 container.insertAdjacentHTML("beforeend", markup);
-container.addEventListener("click", onGalleryClick);
-
-function onGalleryClick(event) {
-  event.preventDefault();
-
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-
-  const modal = basicLightbox.create(
-    `<img src="${event.target.dataset.source}" alt="${event.target.alt}">`
-  );
-  modal.show();
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      modal.close();
-    }
-  });
-}
-
 
 
 function initLightbox() {
